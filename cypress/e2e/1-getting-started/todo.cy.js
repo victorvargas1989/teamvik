@@ -49,13 +49,16 @@ describe('example to-do app', () => {
 
     //add product to car, backpack
     cy.get('[data-test="add-to-cart-sauce-labs-backpack"]').click() //backpack
+    cy.wait(500)
     cy.get('[data-test="add-to-cart-sauce-labs-bike-light"]').click() //bikeLight
+    cy.wait(500)
     cy.get('[data-test="add-to-cart-sauce-labs-onesie"]').click() //mameluco
     cy.get('[data-test="add-to-cart-test.allthethings()-t-shirt-(red)"]').click() //Tshirt red
     //cy.get('[data-test="shopping-cart-badge"]')//abrir carrito de compras
     cy.wait(2000)
     
-    //remove product
+    //remove product backpack
+    cy.get('[data-test="remove-sauce-labs-backpack"]').click()
 
     //check out
     cy.get('[data-test="shopping-cart-badge"]').click()
@@ -65,6 +68,10 @@ describe('example to-do app', () => {
     cy.get('[data-test="lastName"]').type("UAutonoma_Manizales")
     cy.get('[data-test="postalCode"]').type("170001")
     cy.get('[data-test="continue"]').click()
+    cy.wait(1000)
+    cy.get('[data-test="finish"]').click()
+    cy.wait(500)
+    cy.get('[data-test="back-to-products"]').click()
 
 
     //logout
